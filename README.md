@@ -1,9 +1,1 @@
-xdot
-====
-
-XDot.py, by [Jose Fonseca](http://jrfonseca.blogspot.com/), is an interactive viewer for graphs written in
-Graphviz's dot language.
-
-This package adds front-end capabilities to XDot including WX Widget support
-and experimental Qt support and a mechanism for receiving callbacks when nodes
-are clicked.  This extension is provided as BSD.
+If you came here randomly please read [Running rqt_smach (smach_viewer) with ROS Kinetic](https://gist.github.com/matt3o/88bced95dba37a8932a51904d0734dff) first!
