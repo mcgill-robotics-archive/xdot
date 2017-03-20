@@ -37,7 +37,9 @@ from PyQt5 import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
-from python_qt_binding.QtWidgets import QWidget, QStyle, QApplication, QItemDelegate, QStyleOptionButton,QMainWindow
+from PyQt5.QtCore import QObject, pyqtSignal, QEvent
+from python_qt_binding.QtCore import Signal
+from PyQt5.QtWidgets import QWidget, QStyle, QApplication, QItemDelegate, QStyleOptionButton,QMainWindow
 #from python_qt_binding import  *
 #from python_qt_binding.QtCore import  *
 #from python_qt_binding.QtGui import  *
@@ -1339,6 +1341,7 @@ class DotWidget(QWidget):
     """Qt widget that draws dot graphs."""
 
     filter = 'dot'
+    clicked=Signal(str, QEvent)
 
     def __init__(self,  parent=None):
         super(DotWidget,  self).__init__(parent)
@@ -1370,6 +1373,8 @@ class DotWidget(QWidget):
         self.items_by_url = {}
 
         self.setMouseTracking (True) # track all mouse events
+
+        #self.right_clicked=Signal()
 
     ZOOM_INCREMENT = 1.25
     ZOOM_TO_FIT_MARGIN = 12
@@ -1635,9 +1640,11 @@ class DotWidget(QWidget):
             x, y = event.x(), event.y()
             url = self.get_url(x, y)
             if url is not None:
-                self.emit(SIGNAL("clicked"), unicode(url.url), event)
+                #self.emit(SIGNAL("clicked"), unicode(url.url), event)
+                self.clicked.emit(unicode(url.url), event)
             else:
-                self.emit(SIGNAL("clicked"), 'none', event)
+                #self.emit(SIGNAL("clicked"), 'none', event)
+                self.clicked.emit('none', event)
                 jump = self.get_jump(x, y)
                 if jump is not None:
                     self.animate_to(jump.x, jump.y)
