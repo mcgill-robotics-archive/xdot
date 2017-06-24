@@ -4,9 +4,7 @@ project(xdot)
 # Load catkin and all dependencies required for this package
 find_package(catkin REQUIRED)
 
-catkin_package(
-  DEPENDS wxpython graphviz
-)
+catkin_package()
 
 catkin_python_setup()
 
