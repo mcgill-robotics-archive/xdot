@@ -8,5 +8,12 @@ catkin_package()
 
 catkin_python_setup()
 
-install(PROGRAMS scripts/dot_viewer.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(
+  PROGRAMS
+    scripts/dot_viewer.py
+    src/xdot/xdot_qt.py
+    src/xdot/xdot.py
+  DESTINATION
+    ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
