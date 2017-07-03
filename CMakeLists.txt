@@ -11,8 +11,8 @@ catkin_python_setup()
 catkin_install_python(
   PROGRAMS
     scripts/dot_viewer.py
-    src/xdot/${PROJECT_NAME}_qt.py
-    src/xdot/${PROJECT_NAME}.py
+    src/${PROJECT_NAME}/${PROJECT_NAME}_qt.py
+    src/${PROJECT_NAME}/${PROJECT_NAME}.py
   DESTINATION
     ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
